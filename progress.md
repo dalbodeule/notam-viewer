@@ -10,9 +10,9 @@
 ## 1. 초기 셋업
 
 ### 1-1. 리포지토리 구조 확정 (계획)
-- [ ] `backend/` - Go API 서버
-- [ ] `mobile/` - React Native 앱
-- [ ] `infra/` - docker-compose, DB, Redis
+- [x] `backend/` - Go API 서버
+- [x] `mobile/` - React Native 앱
+- [x] `infra/` - docker-compose, DB, Redis
 - [ ] `docs/` - 설계 문서, API 스펙
 
 ### 1-2. 기본 환경 정리
@@ -24,12 +24,12 @@
 ## 2. 인프라/데이터베이스
 
 ### 2-1. PostgreSQL + PostGIS
-- [ ] `infra/postgres/docker-compose.yml` 작성
+- [x] `infra/docker-compose.yml` 작성 (PostGIS + Redis, volume, network)
 - [ ] NOTAM 관련 스키마 초안 설계
 - [ ] 공간 인덱스(GIST) 적용
 
 ### 2-2. Redis
-- [ ] `infra/redis/docker-compose.yml` 작성
+- [x] Docker Compose 내 Redis 서비스 정의 완료
 - [ ] 캐싱 전략(키 설계, TTL 정책) 정의
 
 ## 3. 백엔드(Go)
@@ -52,7 +52,7 @@
 ## 4. 프론트엔드(React Native + KakaoMap)
 
 ### 4-1. 프로젝트 생성
-- [ ] `mobile/` React Native 프로젝트 초기화
+- [x] `mobile/` React Native (Expo) 프로젝트 초기화
 - [ ] 기본 네비게이션 구조(Stack/Tab) 설정
 - [ ] 환경변수/빌드 설정 분리(dev, prod)
 
@@ -74,7 +74,7 @@
 - [ ] 간단한 모니터링/헬스체크 구성
 
 ### 5-2. 배포 전략(초안)
-- [ ] 개발용 Docker Compose 환경 정리
+- [x] 개발용 Docker Compose 환경 정리 (PostGIS + Redis docker-compose)
 - [ ] 운영 배포 후보 환경 정리 (예: AWS/GCP, k8s 등)
 
 ## 변경 이력
@@ -83,3 +83,5 @@
   - 초기 [`README.md`](README.md:1) 작성
   - 초기 [`progress.md`](progress.md:1) 생성 및 1차 TODO 정리
   - `backend/` [`go.mod`](backend/go.mod:1) 생성 (Go 1.25.5, module 초기화)
+  - `mobile/` React Native (Expo) 프로젝트 init 완료
+  - `infra/` [`docker-compose.yml`](infra/docker-compose.yml:1) 작성 (PostGIS + Redis, volume, network 구성)

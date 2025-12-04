@@ -13,7 +13,7 @@ Golang 기반 backend와 React Native(KakaoMap) 기반 frontend로 구현하는 
 
 ```mermaid
 flowchart LR
-  RN[React Native App\n(KakaoMap)] -->|REST API| BE[Go Backend]
+  RN[React Native App(KakaoMap)] -->|REST API| BE[Go Backend]
   BE -->|SQL/Spatial| DB[(PostgreSQL + PostGIS)]
   BE -->|Cache| R[(Redis)]
   BE -->|외부 API| NOTAM[NOTAM Provider]
