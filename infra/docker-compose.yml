@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  postgis:
+    image: imresamu/postgis:17-3.5-alpine3.22
+    container_name: notam-postgis
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=notam
+      - POSTGRES_USER=notam
+      - POSTGRES_PASSWORD=notam_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis-data:/var/lib/postgresql/data
+    networks:
+      - notam-net
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: notam-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - notam-net
+
+volumes:
+  postgis-data:
+  redis-data:
+
+networks:
+  notam-net:
+    driver: bridge
